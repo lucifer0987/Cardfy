@@ -1,0 +1,171 @@
+{% extends 'base_dashboard.html' %} {% block body %}
+<br />
+<br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5" style="margin: auto">
+      <div class="card text-center">
+        <div class="card-header">
+          Cardfy varified creator
+          <img
+            src="../static/landing_img/card/verified.png"
+            height="20px"
+            width="20px"
+            class="mx-1"
+          />
+        </div>
+
+        <div class="card-body">
+          <p class="card-text">
+            <img
+              class="rounded-circle z-depth-2"
+              alt="100x100"
+              src="{{user.profile_image}}"
+              data-holder-rendered="true"
+              height="255px"
+              width="255px"
+            />
+          </p>
+
+          <h4>{{user.name}}</h4>
+          <p style="font-family: 'Architects Daughter', cursive">
+            Vlogger
+            <img
+              src="../static/landing_img/card/youtube.png"
+              height="20px"
+              width="20px"
+              class="mx-1"
+            />
+            | Caring<img
+              src="../static/landing_img/card/passion.png"
+              height="20px"
+              width="20px"
+              class="mx-1"
+            />
+            | Nature lover
+            <img
+              src="../static/landing_img/card/nature.png"
+              height="20px"
+              width="20px"
+              class="mx-1"
+            />
+          </p>
+
+          <div class="text-muted" style="font-family: 'Open Sans', sans-serif">
+            Hey ! I am currently working as full time vlogger. It's too fun to
+            meet new people everyday, you are one the the most valuable out
+            there
+            <br /><br />
+            Checkout my social profiles and do follow me ! <br />
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col -lg-2">
+              <a class="button">
+                <img
+                  src="../static/landing_img/card/facebook.png"
+                  height="30px"
+                  width="30px"
+                  class="button mx-1"
+                />
+              </a>
+            </div>
+
+            <div class="col -lg-2">
+              <a class="button">
+                <img
+                  src="../static/landing_img/card/instagram.png"
+                  height="30px"
+                  width="30px"
+                  class="button mx-1"
+                />
+              </a>
+            </div>
+
+            <div class="col -lg-2">
+              <a class="button">
+                <img
+                  src="../static/landing_img/card/twitter.png"
+                  height="30px"
+                  width="30px"
+                  class="button mx-1"
+                />
+              </a>
+            </div>
+
+            <div class="col -lg-2">
+              <a class="button">
+                <img
+                  src="../static/landing_img/card/linkedin.png"
+                  height="30px"
+                  width="30px"
+                  class="button mx-1"
+                />
+              </a>
+            </div>
+
+            <div class="col -lg-2">
+              <a class="button">
+                <img
+                  src="../static/landing_img/card/whatsapp.png"
+                  height="30px"
+                  width="30px"
+                  class="button mx-1"
+                />
+              </a>
+            </div>
+
+            <div class="col -lg-2">
+              <a class="button">
+                <img
+                  src="../static/landing_img/card/gmail.png"
+                  height="30px"
+                  width="30px"
+                  class="button mx-1"
+                />
+              </a>
+            </div>
+          </div>
+          <br />
+
+          <div class="card-footer text-muted">
+            {% for i in "four" %}
+            <img
+              src="../static/landing_img/card/star.png"
+              height="20px"
+              width="20px"
+              class="button mx-1"
+            />
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <h3 style="font-family: 'Fredoka One', cursive">Hey {{user.name}} !</h3>
+      <p>Start creatring your creator's digital identity now</p>
+      <div>
+        <p style="font-family: 'Open Sans', cursive; color: blue">
+          Page Under Construction ! We are developing this page currently, so
+          many of the features of this page is not working as of now . leave
+          your feedback at<a
+            href="mailto:cardfy.help@gmail.com"
+            style="color: red"
+          >
+            cardfy.help@gmail.com</a
+          >
+        </p>
+        <img src="../static/landing_img/img1.png" height="500" width="650" />
+        <div></div>
+      </div>
+      <br />
+      <br />
+    </div>
+    <br />
+    <br />
+    {% endblock body %}
+  </div>
+</div>

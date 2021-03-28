@@ -1,0 +1,1 @@
+web: gunicorn uthkal.wsgi --log-file -

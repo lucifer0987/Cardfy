@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% block body %}
+<br />
+<br />
+<br />
+<br />
+<center>
+  <div class="container card">
+    <div class="row">
+      <div class="col-lg-1 col-md-12">
+        <center>
+          <img
+            class=""
+            src="/static/landing_img/img4.png"
+            height="600px"
+            width="600px"
+          />
+        </center>
+      </div>
+      <div class="col-lg-5 col-md-12"></div>
+
+      <div class="col-lg-5 col-md-12">
+        <!-- Default form login -->
+        <form class="text-center p-5" method="post" action="">
+          {% csrf_token %}
+          <p class="h4 mb-4" style="font-family: 'Fredoka One', cursive">
+            Sign in
+          </p>
+
+          <!-- Email -->
+          <input
+            type="text"
+            name="email"
+            id="defaultLoginFormEmail"
+            class="form-control mb-4"
+            placeholder="E-mail / Username"
+            required
+          />
+
+          <!-- Password -->
+          <input
+            name="password"
+            type="password"
+            id="defaultLoginFormPassword"
+            class="form-control mb-4"
+            placeholder="Password"
+            required
+          />
+
+          <div class="d-flex justify-content-around">
+            <div>
+              <!-- Remember me -->
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="defaultLoginFormRemember"
+                />
+                <label
+                  class="custom-control-label"
+                  for="defaultLoginFormRemember"
+                  >Remember me</label
+                >
+              </div>
+            </div>
+            <div>
+              <!-- Forgot password -->
+              <a href="">Forgot password?</a>
+            </div>
+          </div>
+
+          <!-- Sign in button -->
+          <button class="btn btn-dark btn-block my-4" type="submit">
+            Sign in
+          </button>
+
+          <!-- Register -->
+          <p>
+            Not a member?
+            <a href="/register">Register</a>
+          </p>
+
+          <!-- Social login -->
+          <p>or sign in with:</p>
+
+          <a href="#" class="mx-2" role="button"
+            ><i class="fab fa-facebook-f light-blue-text"></i
+          ></a>
+          <a href="#" class="mx-2" role="button"
+            ><i class="fab fa-twitter light-blue-text"></i
+          ></a>
+          <a href="#" class="mx-2" role="button"
+            ><i class="fab fa-linkedin-in light-blue-text"></i
+          ></a>
+          <a href="#" class="mx-2" role="button"
+            ><i class="fab fa-github light-blue-text"></i
+          ></a>
+        </form>
+
+        <!-- Default form login -->
+      </div>
+    </div>
+  </div>
+</center>
+
+{% endblock body %}
