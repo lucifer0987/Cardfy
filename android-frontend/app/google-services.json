@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "965205482528",
+    "project_id": "cardfy-88800",
+    "storage_bucket": "cardfy-88800.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965205482528:android:46ca2fee3a6d80bef17045",
+        "android_client_info": {
+          "package_name": "com.example.cardfy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965205482528-pnur11b2q5nrtbm9p0it4lhk0d1npb6h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPTPXVv5tdtBZEeIQ6p2mvDojKlJ0fDmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965205482528-pnur11b2q5nrtbm9p0it4lhk0d1npb6h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

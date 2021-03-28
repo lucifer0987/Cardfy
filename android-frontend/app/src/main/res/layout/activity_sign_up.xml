@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#007ba4"
+    tools:context=".Activities.SignUpActivity">
+
+    <RelativeLayout
+        android:id="@+id/step_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/add_pic"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/add_pic" />
+
+        <LinearLayout
+            android:id="@+id/edit_texts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_pic"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:fontFamily="@font/montserrat"
+                android:hint="Your Name"
+                android:inputType="textPersonName"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:backgroundTint="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="50dp"
+                android:fontFamily="@font/montserrat"
+                android:hint="UserName [should not contain '@']"
+                android:inputType="textPersonName"
+                android:paddingStart="20dp"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FFFFFF"
+                android:paddingEnd="10dp"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="50dp"
+                android:fontFamily="@font/montserrat"
+                android:hint="Your Email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="20dp"
+                android:backgroundTint="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
+                android:paddingEnd="10dp"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/pswd1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="50dp"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="@font/montserrat"
+                android:hint="Your Password"
+                android:inputType="textPassword"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/pswd2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="50dp"
+                android:fontFamily="@font/montserrat"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:paddingStart="20dp"
+                android:backgroundTint="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
+                android:paddingEnd="10dp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_texts"
+            android:layout_centerHorizontal="true"
+            android:text="Sign Up"
+            android:backgroundTint="@color/teal_200"
+            android:textSize="24sp"
+            android:layout_marginTop="32dp"
+            android:id="@+id/sign_up"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_up"
+            android:layout_centerHorizontal="true"
+            android:text="Sign In"
+            android:textSize="24sp"
+            android:layout_marginTop="32dp"
+            android:id="@+id/sign_in"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_in"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="Select a profile pic before signing up.\nIt will create an admin account, so you need to enter the passcode for security reasons."
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</ScrollView>
