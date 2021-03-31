@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
   username: { type: String, required: true, unique: true, max: 50 },
   password: { type: String, max: 1024, required: true },
   profile_image: { type: String, required: true },
-  isVarified: { type: Boolean, default: false, required: false },
+  isVerified: { type: Boolean, default: false, required: false },
 });
 
 userSchema.methods.generateAuthToken = function () {

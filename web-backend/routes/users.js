@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const { User, validateUser, validateUserLogin } = require("../models/user");
+const { Card } = require("../models/card");
 const auth = require("../middlewares/auth");
 const route = express.Router();
 
@@ -22,10 +23,19 @@ route.post("/", async (req, res) => {
     username: req.body.username,
     profile_image: req.body.profile_image,
   });
+  card = new Card({
+    name: req.body.name,
+    email: req.body.email,
+    username: req.body.username,
+    profile_image: req.body.profile_image,
+  });
+
   const token = user.generateAuthToken();
 
-  const result = await user.save();
-  if (result) res.header("x-auth-token", token).send(result);
+  const result_user = await user.save();
+  const result_card = await card.save();
+  if (result_user && result_card)
+    res.header("x-auth-token", token).send(result_user);
 });
 
 route.post("/login", async (req, res) => {
