@@ -1,17 +1,473 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical"
     tools:context=".Activities.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Work in Progress!!"
-        android:textSize="24sp"
-        android:textColor="#000000"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="8dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="54dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:layout_width="54dp"
+            android:id="@+id/share_profile"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_baseline_share_24" />
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="36dp"
+            android:layout_toLeftOf="@id/share_profile"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/edit_profile"
+            android:src="@drawable/ic_baseline_edit_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/logo"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Cardfy"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_below="@id/title_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="3.5dp"
+        android:background="#FFFFFF"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/side_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:padding="16dp"
+                android:visibility="visible"
+                android:background="@drawable/card_bg">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/rotation"
+                    android:id="@+id/flip"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_pic"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/sample_pic"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_pic"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/name"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="24sp"
+                        android:id="@+id/profile_name"
+                        android:text="Stifnie Roger"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="12dp"
+                        android:id="@+id/verified_tag"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/verified"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/profession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/montserrat"
+                    android:layout_below="@id/name"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="19sp"
+                    android:text="Vlogger | Caring | Nature Lover"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#515151"
+                    android:layout_below="@id/profession"
+                    android:fontFamily="@font/montserrat"
+                    android:id="@+id/description"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="17sp"
+                    android:text="Hey ! I am currently working as full time vlogger. It's too fun to meet new people everyday, you are one the the most valuable out there."/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/description"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/social_media"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/montserrat"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="17sp"
+                        android:gravity="center"
+                        android:text="Checkout my social profiles and do follow me !"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="42dp"
+                            android:id="@+id/facebook"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/facebook"/>
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="42dp"
+                            android:id="@+id/instagram"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/instagram"/>
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="42dp"
+                            android:id="@+id/twitter"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/twitter"/>
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="42dp"
+                            android:id="@+id/linkedin"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/linkedin"/>
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="42dp"
+                            android:id="@+id/whatsapp"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/whatsapp"/>
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="42dp"
+                            android:id="@+id/gmail"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/gmail"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#515151"
+                    android:layout_below="@id/social_media"
+                    android:fontFamily="@font/montserrat"
+                    android:id="@+id/story_line"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="17sp"
+                    android:text="I am also an environment activist trying to make things better for those who dont speak but had lot to speak"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/story_line"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/rating"
+                    android:orientation="horizontal">
+
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:isIndicator="true"
+                        android:max="5"
+                        android:numStars="5"
+                        android:rating="3.5"
+                        android:id="@+id/rating_bar"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/side_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:padding="16dp"
+                android:visibility="gone"
+                android:background="@drawable/card_bg">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/rotation"
+                    android:id="@+id/flip_2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="20sp"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/meet"
+                    android:text="Lets Meet Up"/>
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/loc"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/meet"
+                    android:layout_alignTop="@id/meet"
+                    android:layout_alignBottom="@id/meet"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#5A5959"
+                    android:layout_below="@id/meet"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="17sp"
+                    android:layout_marginTop="4dp"
+                    android:id="@+id/address"
+                    android:text="Main Market Market Ln Block E, Hauz Khas New Delhi, Delhi 110016"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/address"
+                    android:id="@+id/praise"
+                    android:text="Praise Me"/>
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/clap"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/praise"
+                    android:layout_alignTop="@id/praise"
+                    android:layout_alignBottom="@id/praise"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pay"
+                    android:layout_below="@id/praise"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="42dp"
+                        android:id="@+id/upi"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/upi"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="42dp"
+                        android:id="@+id/gpay"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/gpay2"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="42dp"
+                        android:id="@+id/phonepe"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/phone_pay"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="42dp"
+                        android:id="@+id/paytm"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/paytm"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#5A5959"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/pay"
+                    android:gravity="center"
+                    android:id="@+id/praise_story"
+                    android:text="Working for varoius social cause is not so easy when it comes to funding , we are raising funds for planting and caring 10K trees this year.Show your support by contributing ."/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/praise_story"
+                    android:id="@+id/join_me"
+                    android:text="Join Me"/>
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/cap"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/join_me"
+                    android:layout_alignTop="@id/join_me"
+                    android:layout_alignBottom="@id/join_me"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/join"
+                    android:layout_below="@id/join_me"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="42dp"
+                        android:id="@+id/discord"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/discord"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="42dp"
+                        android:id="@+id/slack"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/slack"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="42dp"
+                        android:id="@+id/skype"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/skype"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="42dp"
+                        android:id="@+id/youtube"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/youtube"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/join"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/rating_2"
+                    android:orientation="horizontal">
+
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:isIndicator="true"
+                        android:max="5"
+                        android:numStars="5"
+                        android:rating="3.5"
+                        android:id="@+id/rating_bar_2"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

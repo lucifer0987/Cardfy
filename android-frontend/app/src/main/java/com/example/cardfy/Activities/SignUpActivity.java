@@ -13,7 +13,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.cardfy.Modals.SignUpPost;
@@ -43,7 +45,8 @@ public class SignUpActivity extends AppCompatActivity {
     EditText name, email, username, password1, password2;
     Uri pickedImgUri;
     ImageView addpic;
-    Button signup, signin;
+    ImageButton signup, signin;
+    ProgressBar pr_sign_up;
     String emailtxt = "", nametxt = "", usernametxt = "", password1txt = "", password2txt = "", image_url_txt = "";
 
     @Override
@@ -74,6 +77,9 @@ public class SignUpActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                signup.setVisibility(View.INVISIBLE);
+                pr_sign_up.setVisibility(View.VISIBLE);
+
                 try {
                     emailtxt = email.getText().toString().trim();
                     password1txt = password1.getText().toString();
@@ -93,12 +99,16 @@ public class SignUpActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(SignUpActivity.this, "Please Verify all fields", Toast.LENGTH_SHORT).show();
                         }
+                        signup.setVisibility(View.VISIBLE);
+                        pr_sign_up.setVisibility(View.INVISIBLE);
 
                     } else {
                         //everything is ok and fields are filled now we can go to next step
                         uploadImage();
                     }
                 } catch (Exception e) {
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
                     Toast.makeText(SignUpActivity.this, "Please enter details in correct format!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -122,6 +132,12 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 });
             }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                signup.setVisibility(View.VISIBLE);
+                pr_sign_up.setVisibility(View.INVISIBLE);
+            }
         });
     }
 
@@ -139,12 +155,18 @@ public class SignUpActivity extends AppCompatActivity {
                     startActivity(i);
                 }else if(response.code() == 400){
                     Toast.makeText(SignUpActivity.this, "Some Failure Occured!! Please Try Again!!", Toast.LENGTH_SHORT).show();
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
                     deleteImage();
                 }else if(response.code() == 401){
                     Toast.makeText(SignUpActivity.this, "This Email is already associated with some other account!!", Toast.LENGTH_SHORT).show();
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
                     deleteImage();
                 }else if(response.code() == 405){
                     Toast.makeText(SignUpActivity.this, "Username Taken!! Please use another", Toast.LENGTH_SHORT).show();
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
                     deleteImage();
                 }
             }
@@ -152,6 +174,8 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<UserInfoGet> call, Throwable t) {
                 Toast.makeText(SignUpActivity.this, "Some Failure Occured!! Please Try Again!!", Toast.LENGTH_SHORT).show();
+                signup.setVisibility(View.VISIBLE);
+                pr_sign_up.setVisibility(View.INVISIBLE);
                 deleteImage();
                 Log.e("this", String.valueOf(t.getMessage()));
             }
@@ -192,8 +216,9 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void Init() {
         signup = findViewById(R.id.sign_up);
-        signin = findViewById(R.id.sign_in);
+        signin = findViewById(R.id.login);
         addpic = findViewById(R.id.add_pic);
+        pr_sign_up = findViewById(R.id.pr_sign_up);
 
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
