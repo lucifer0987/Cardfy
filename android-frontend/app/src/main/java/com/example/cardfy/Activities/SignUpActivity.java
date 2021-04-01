@@ -23,6 +23,7 @@ import com.example.cardfy.Modals.User;
 import com.example.cardfy.Modals.UserInfoGet;
 import com.example.cardfy.R;
 import com.example.cardfy.Retrofit_Interface.RetrofitClient;
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -119,22 +120,27 @@ public class SignUpActivity extends AppCompatActivity {
         StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("user_images");
         final StorageReference imageFilePath = mStorage.child(usernametxt);
 
-        imageFilePath.putFile(pickedImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+        imageFilePath.putFile(pickedImgUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                //image uploaded successfully
-                imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Log.e("this", "Uploaded Successfully!!");
-                        image_url_txt = uri.toString();
-                        uploadData();
-                    }
-                });
+            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                if(task.isSuccessful()){
+                    //image uploaded successfully
+                    imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Log.e("this", "Uploaded Successfully!!");
+                            image_url_txt = uri.toString();
+                            uploadData();
+                        }
+                    });
+                }else{
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
+                }
             }
-        }).addOnFailureListener(new OnFailureListener() {
+        }).addOnCanceledListener(new OnCanceledListener() {
             @Override
-            public void onFailure(@NonNull Exception e) {
+            public void onCanceled() {
                 signup.setVisibility(View.VISIBLE);
                 pr_sign_up.setVisibility(View.INVISIBLE);
             }
