@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cpd"
+    tools:context=".Activities.EditProfileHome">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_pic"
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/add_pic"/>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="Gaurav Kumar"
+            android:textSize="24sp"
+            android:layout_below="@id/profile_pic"
+            android:id="@+id/profile_name"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="(Select the Image to change profile pic.)"
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            android:textSize="14sp"
+            android:layout_below="@id/profile_name"
+            android:id="@+id/info"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/info"
+            android:text="Personal Info"
+            android:id="@+id/personal_info"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="28sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:background="@drawable/submit_button_login"
+            android:textColor="@color/cpd"/>
+
+        <TextView
+            android:layout_below="@id/personal_info"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Introduction"
+            android:id="@+id/introduction"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:background="@drawable/submit_button_login"
+            android:textColor="@color/cpd"/>
+
+        <TextView
+            android:layout_below="@id/introduction"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Story Line"
+            android:id="@+id/story_line"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:background="@drawable/submit_button_login"
+            android:textColor="@color/cpd"/>
+
+        <TextView
+            android:layout_below="@id/story_line"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Address Info"
+            android:id="@+id/address_info"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:background="@drawable/submit_button_login"
+            android:textColor="@color/cpd"/>
+
+        <TextView
+            android:layout_below="@id/address_info"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Payment Info"
+            android:id="@+id/payment_info"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:background="@drawable/submit_button_login"
+            android:textColor="@color/cpd"/>
+
+        <TextView
+            android:layout_below="@id/payment_info"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Log Out"
+            android:id="@+id/log_out"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:background="@drawable/submit_button_login"
+            android:textColor="@color/cpd"/>
+
+    </RelativeLayout>
+
+
+
+</ScrollView>

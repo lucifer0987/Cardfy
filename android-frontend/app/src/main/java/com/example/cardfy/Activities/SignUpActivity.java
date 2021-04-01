@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +36,9 @@ import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 
 import retrofit2.Call;
@@ -211,7 +215,7 @@ public class SignUpActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
                 pickedImgUri = result.getUri();
-                addpic.setImageURI(pickedImgUri);
+                compressImage();
 
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
@@ -219,6 +223,24 @@ public class SignUpActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void compressImage() {
+        InputStream imageStream = null;
+        try {
+            imageStream = getContentResolver().openInputStream(pickedImgUri);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Bitmap bmp = BitmapFactory.decodeStream(imageStream);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 20, stream);
+
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), bmp, "image", "image");
+        pickedImgUri = Uri.parse(path);
+        addpic.setImageURI(pickedImgUri);
+    }
+
 
     private void Init() {
         signup = findViewById(R.id.sign_up);
