@@ -32,6 +32,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -51,6 +52,7 @@ public class EditProfileHome extends AppCompatActivity {
     Uri pickedImgUri;
     String token = "";
     Card CurrCard = null;
+    TextView profile_name, personal_info, introduction, story_line, address_info, payment_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,12 +83,53 @@ public class EditProfileHome extends AppCompatActivity {
             }
         });
 
+        personal_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EditProfileHome.this, EditPersonalInfo.class));
+            }
+        });
+
+        story_line.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EditProfileHome.this, EditStoryLine.class));
+            }
+        });
+
+        payment_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EditProfileHome.this, EditPaymentInfo.class));
+            }
+        });
+
+        introduction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EditProfileHome.this, EditIntroduction.class));
+            }
+        });
+
+        address_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EditProfileHome.this, EditAddressInfo.class));
+            }
+        });
+
     }
 
     private void Init() {
         Paper.init(this);
         add_pic = findViewById(R.id.profile_pic);
         log_out = findViewById(R.id.log_out);
+        profile_name = findViewById(R.id.profile_name);
+        personal_info = findViewById(R.id.personal_info);
+        story_line = findViewById(R.id.story_line);
+        payment_info = findViewById(R.id.payment_info);
+        introduction = findViewById(R.id.introduction);
+        address_info = findViewById(R.id.address_info);
     }
 
     private void InitValues() {
@@ -95,6 +138,15 @@ public class EditProfileHome extends AppCompatActivity {
         CurrCard = Paper.book().read("CurrCard", null);
         Log.e("User", token);
         Log.e("Card", CurrCard.toString());
+        Picasso.get().load(CurrCard.getProfileImage()).placeholder(R.drawable.add_pic).into(add_pic);
+        profile_name.setText(CurrCard.getName());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Init();
+        InitValues();
     }
 
     @Override

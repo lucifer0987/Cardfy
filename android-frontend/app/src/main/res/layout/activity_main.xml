@@ -68,13 +68,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ProgressBar
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+                android:id="@+id/pr_main"/>
+
             <RelativeLayout
                 android:id="@+id/side_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:padding="16dp"
-                android:visibility="visible"
+                android:visibility="invisible"
                 android:background="@drawable/card_bg">
 
                 <ImageView
@@ -266,7 +273,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:padding="16dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:background="@drawable/card_bg">
 
                 <ImageView
