@@ -127,12 +127,12 @@ public class MainActivity extends AppCompatActivity {
         gmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(CurrCard.getEmail().equals("")){
+                if (CurrCard.getEmail().equals("")) {
                     Toast.makeText(MainActivity.this, "Not Provided!", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Intent intent = new Intent(Intent.ACTION_SENDTO);
                     intent.setData(Uri.parse("mailto:"));
-                    intent.putExtra(Intent.EXTRA_EMAIL, new String[] { CurrCard.getEmail()});
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[]{CurrCard.getEmail()});
                     intent.putExtra(Intent.EXTRA_SUBJECT, "Enter your subject here!");
                     intent.putExtra(Intent.EXTRA_TEXT, "Enter your message here!");
                     startActivity(Intent.createChooser(intent, "Choose application"));
@@ -182,6 +182,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showPaymentDialog(CurrCard.getGpay());
+            }
+        });
+
+        discord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performClick(discord, CurrCard.getDiscord());
+            }
+        });
+
+        slack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performClick(slack, CurrCard.getSlack());
+            }
+        });
+
+        skype.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performClick(skype, CurrCard.getSkype());
+            }
+        });
+
+        youtube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performClick(youtube, CurrCard.getYoutube());
             }
         });
 
@@ -253,16 +281,18 @@ public class MainActivity extends AppCompatActivity {
         paytm = findViewById(R.id.paytm);
         phonepe = findViewById(R.id.phonepe);
 
-        //TODO add join me links
-
+        discord = findViewById(R.id.discord);
+        slack = findViewById(R.id.slack);
+        youtube = findViewById(R.id.youtube);
+        skype = findViewById(R.id.skype);
     }
 
     private void InitData() {
         Picasso.get().load(CurrCard.getProfileImage()).placeholder(R.drawable.add_pic).into(profile_pic);
         setText(CurrCard.getName(), profile_name);
-        if(CurrCard.isIsVerified()){
+        if (CurrCard.isIsVerified()) {
             is_verified.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             is_verified.setVisibility(View.GONE);
         }
         setText(CurrCard.getIntro(), intro);
@@ -270,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
         setText(CurrCard.getLongDesc(), long_desc);
         rating.setRating(CurrCard.getRating());
         rating2.setRating(CurrCard.getRating());
-        setText(CurrCard.getAddress(), address);
+        setText(CurrCard.getAddress()+", "+CurrCard.getCity()+", "+CurrCard.getState()+", "+CurrCard.getCountry(), address);
         setText(CurrCard.getFundDesc(), fund_desc);
 
         step_1.setVisibility(View.VISIBLE);
@@ -279,20 +309,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setText(String text, TextView tv) {
-        if(text.equals("")){
+        if (text.equals("")) {
             tv.setVisibility(View.GONE);
-        }else{
+        } else {
             tv.setVisibility(View.VISIBLE);
             tv.setText(text);
         }
     }
 
     private void performClick(ImageView iv, String url) {
-        if(url.equals("")){
+        if (url.equals("")) {
             Toast.makeText(this, "Not Provided!!", Toast.LENGTH_SHORT).show();
-        }else if(!url.startsWith("http:")){
+        } else if (!url.startsWith("http:")) {
             Toast.makeText(this, "Invalid Profile given", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Uri uri = Uri.parse(url);
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
@@ -326,7 +356,7 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void launchUPI(String upi_id, String amount){
+    private void launchUPI(String upi_id, String amount) {
         Uri uri = Uri.parse("upi://pay").buildUpon()
                 .appendQueryParameter("pa", upi_id)
                 .appendQueryParameter("pn", CurrCard.getName())

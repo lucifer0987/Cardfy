@@ -87,6 +87,7 @@ public class EditProfileHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EditProfileHome.this, EditPersonalInfo.class));
+                finish();
             }
         });
 
@@ -94,6 +95,7 @@ public class EditProfileHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EditProfileHome.this, EditStoryLine.class));
+                finish();
             }
         });
 
@@ -101,6 +103,7 @@ public class EditProfileHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EditProfileHome.this, EditPaymentInfo.class));
+                finish();
             }
         });
 
@@ -108,6 +111,7 @@ public class EditProfileHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EditProfileHome.this, EditIntroduction.class));
+                finish();
             }
         });
 
@@ -115,6 +119,7 @@ public class EditProfileHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EditProfileHome.this, EditAddressInfo.class));
+                finish();
             }
         });
 
@@ -133,7 +138,6 @@ public class EditProfileHome extends AppCompatActivity {
     }
 
     private void InitValues() {
-        Paper.init(this);
         token = Paper.book().read("token", "");
         CurrCard = Paper.book().read("CurrCard", null);
         Log.e("User", token);
@@ -281,4 +285,10 @@ public class EditProfileHome extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(EditProfileHome.this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
 }

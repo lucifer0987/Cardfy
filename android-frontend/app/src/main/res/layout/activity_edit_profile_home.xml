@@ -45,7 +45,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_below="@id/info"
             android:text="Personal Info"
             android:id="@+id/personal_info"
@@ -61,7 +61,7 @@
         <TextView
             android:layout_below="@id/personal_info"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:text="Introduction"
             android:id="@+id/introduction"
             android:layout_marginTop="16dp"
@@ -76,7 +76,7 @@
         <TextView
             android:layout_below="@id/introduction"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:text="Story Line"
             android:id="@+id/story_line"
             android:layout_marginTop="16dp"
@@ -91,7 +91,7 @@
         <TextView
             android:layout_below="@id/story_line"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:text="Address Info"
             android:id="@+id/address_info"
             android:layout_marginTop="16dp"
@@ -106,7 +106,7 @@
         <TextView
             android:layout_below="@id/address_info"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:text="Payment Info"
             android:id="@+id/payment_info"
             android:layout_marginTop="16dp"
@@ -121,7 +121,7 @@
         <TextView
             android:layout_below="@id/payment_info"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
             android:text="Log Out"
             android:id="@+id/log_out"
             android:layout_marginTop="16dp"

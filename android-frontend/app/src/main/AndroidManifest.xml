@@ -10,15 +10,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Cardfy">
-        <activity android:name=".Activities.EditAddressInfo"></activity>
-        <activity android:name=".Activities.EditIntroduction" />
-        <activity android:name=".Activities.EditPaymentInfo" />
-        <activity android:name=".Activities.EditStoryLine" />
-        <activity android:name=".Activities.EditPersonalInfo" />
-        <activity android:name=".Activities.ShareProfile" />
-        <activity android:name=".Activities.EditProfileHome" />
+        <activity android:name=".Activities.EditAddressInfo"
+            android:noHistory="true">
+        </activity>
+        <activity android:name=".Activities.EditIntroduction"
+            android:noHistory="true"/>
+        <activity android:name=".Activities.EditPaymentInfo"
+            android:noHistory="true"/>
+        <activity android:name=".Activities.EditStoryLine"
+            android:noHistory="true"/>
+        <activity android:name=".Activities.EditPersonalInfo"
+            android:noHistory="true">
+        </activity>
+        <activity android:name=".Activities.ShareProfile"
+            android:noHistory="true"/>
+        <activity android:name=".Activities.EditProfileHome"/>
         <activity android:name=".Activities.SignUpActivity" />
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".Activities.MainActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
