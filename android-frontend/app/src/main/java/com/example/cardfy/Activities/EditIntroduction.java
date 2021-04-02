@@ -122,7 +122,12 @@ public class EditIntroduction extends AppCompatActivity {
         instagram.setText(CurrCard.getInstagram());
         twitter.setText(CurrCard.getTwitter());
         linkedin.setText(CurrCard.getLinkedin());
-        whatsapp.setText(CurrCard.getWhatsapp().substring(13));
+        String whats = CurrCard.getWhatsapp();
+        if(whats.equals("")){
+            whatsapp.setText(whats);
+        }else{
+            whatsapp.setText(CurrCard.getWhatsapp().substring(13));
+        }
         email.setText(CurrCard.getEmail());
     }
 

@@ -26,8 +26,7 @@
             android:noHistory="true"/>
         <activity android:name=".Activities.EditProfileHome"/>
         <activity android:name=".Activities.SignUpActivity" />
-        <activity android:name=".Activities.MainActivity"
-            android:noHistory="true">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

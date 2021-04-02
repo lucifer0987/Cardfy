@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, EditProfileHome.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, ShareProfile.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -150,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://maps.google.co.in/maps?q=" + CurrCard.getAddressSlug();
+                String url = "http://maps.google.co.in/maps?q=" + CurrCard.getAddress()+CurrCard.getCity();
                 Uri uri = Uri.parse(url);
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
