@@ -17,127 +17,164 @@
         }
       }
     </script>
+
+    <style>
+      .nmorphicBlock {
+        position: relative;
+        display: inline-block;
+        padding: 8px 25px;
+        margin: 10px;
+        text-decoration: none;
+        background: white;
+
+        color: black;
+
+        box-shadow: -2px -2px 8px pink, -2px -2px 12px rgba(0, 0, 255, 0.5),
+          inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+          2px 2px 8px rgba(0, 0, 0, 0.15);
+      }
+    </style>
   </head>
+  <body style="background: #f8f8ff">
+    {% extends 'login_base.html' %} {% block body %}
+    <br />
 
-  {% extends 'base.html' %} {% block body %}
-  <br />
-  <br />
-  <br />
-  <br />
-  <center>
-    <div class="container card">
-      <div class="row">
-        <div class="col-lg-1 col-md-12">
-          <center>
-            <img
-              class=""
-              src="/static/landing_img/img4.png"
-              height="600px"
-              width="600px"
-            />
-          </center>
-        </div>
-        <div class="col-lg-5 col-md-12"></div>
+    <center>
+      <div class="container">
+        <div class="row nmorphicBlock">
+          <div class="col-lg-6 col-md-12">
+            <div class="row">
+              <div class="col-sm-2 col-lg-12"></div>
+              <div class="col-sm-8 col-lg-12">
+                <img
+                  style="margin-top: 00px"
+                  class="img-fluid"
+                  src="/static/landing_img/img5.png"
+                />
+              </div>
+              <div class="col-sm-2 col-lg-12"></div>
+            </div>
+          </div>
+          {% comment %}
+          <div class="col-lg-5 col-md-12"></div>
+          {% endcomment %}
 
-        <div class="col-lg-5 col-md-12">
-          <!-- Default form login -->
-          <form
-            class="text-center p-5"
-            method="post"
-            action=""
-            enctype="multipart/form-data"
-          >
-            {% csrf_token %}
-            <p class="h4 mb-4" style="font-family: 'Fredoka One', cursive">
-              Register
-            </p>
+          <div class="col-lg-6 col-md-12">
+            <!-- Default form login -->
+            <form
+              class="text-center p-5"
+              method="post"
+              action=""
+              enctype="multipart/form-data"
+            >
+              {% csrf_token %}
+              <p class="h4 mb-4" style="font-family: 'Open Sans', cursive">
+                <img
+                  src="../static/landing_img/card/cap.png"
+                  height="30px"
+                  width="30px"
+                />
+                Let's Register You
+                <img
+                  src="../static/landing_img/card/cap.png"
+                  height="30px"
+                  width="30px"
+                />
+              </p>
 
-            <input
-              name="name"
-              type="text"
-              id="defaultLoginFormEmail"
-              class="form-control mb-4"
-              placeholder="Full Name"
-              required
-            />
-            <!-- Email -->
-            <input
-              name="email"
-              type="email"
-              id="defaultLoginFormEmail"
-              class="form-control mb-4"
-              placeholder="E-mail"
-              required
-            />
-            <!-- username -->
-            <input
-              name="username"
-              type="text"
-              id="defaultLoginFormEmail"
-              class="form-control mb-4"
-              placeholder="Username"
-              required
-            />
-            <!-- Password -->
-            <input
-              name="password"
-              type="password"
-              id="defaultLoginFormPassword"
-              class="form-control mb-4"
-              placeholder="Password"
-              required
-            />
-            <input type="file" name="files" accept="image/*" />
+              <input
+                name="name"
+                type="text"
+                id="defaultLoginFormEmail"
+                class="form-control mb-4"
+                placeholder="Full Name"
+                required
+              />
+              <!-- Email -->
+              <input
+                name="email"
+                type="email"
+                id="defaultLoginFormEmail"
+                class="form-control mb-4"
+                placeholder="E-mail"
+                required
+              />
+              <!-- username -->
+              <input
+                name="username"
+                type="text"
+                id="defaultLoginFormEmail"
+                class="form-control mb-4"
+                placeholder="Username"
+                required
+              />
+              <!-- Password -->
+              <input
+                name="password"
+                type="password"
+                id="defaultLoginFormPassword"
+                class="form-control mb-4"
+                placeholder="Password"
+                required
+              />
+              {% comment %}
+              <input type="file" name="files" accept="image/*" />
+              {% endcomment%}
 
-            <div class="d-flex justify-content-around">
-              <div>
-                <!-- Remember me -->
-                <div class="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="defaultLoginFormRemember"
-                  />
+              <div class="d-flex justify-content-around">
+                <div>
+                  <!-- Remember me -->
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="defaultLoginFormRemember"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <!-- Forgot password -->
                 </div>
               </div>
-              <div>
-                <!-- Forgot password -->
-              </div>
-            </div>
 
-            <!-- Sign in button -->
-            <button class="btn btn-dark btn-block my-4" type="submit">
-              Sign in
-            </button>
+              <!-- Sign in button -->
+              <button class="btn btn-dark btn-block my-4" type="submit">
+                Sign in
+              </button>
 
-            <!-- Register -->
-            <p>
-              Already have an account ?
-              <a href="/login">login</a>
-            </p>
+              <!-- Register -->
+              <p>
+                Already have an account ?
+                <a href="/login">login</a>
+              </p>
 
-            <!-- Social login -->
-            <p>or sign in with:</p>
+              <!-- Social login -->
+              <p>or sign in with:</p>
 
-            <a href="#" class="mx-2" role="button"
-              ><i class="fab fa-facebook-f light-blue-text"></i
-            ></a>
-            <a href="#" class="mx-2" role="button"
-              ><i class="fab fa-twitter light-blue-text"></i
-            ></a>
-            <a href="#" class="mx-2" role="button"
-              ><i class="fab fa-linkedin-in light-blue-text"></i
-            ></a>
-            <a href="#" class="mx-2" role="button"
-              ><i class="fab fa-github light-blue-text"></i
-            ></a>
-          </form>
+              <a href="#" class="mx-2" role="button"
+                ><i class="fab fa-facebook-f light-blue-text"></i
+              ></a>
+              <a href="#" class="mx-2" role="button"
+                ><i class="fab fa-twitter light-blue-text"></i
+              ></a>
+              <a href="#" class="mx-2" role="button"
+                ><i class="fab fa-linkedin-in light-blue-text"></i
+              ></a>
+              <a href="#" class="mx-2" role="button"
+                ><i class="fab fa-github light-blue-text"></i
+              ></a>
+            </form>
 
-          <!-- Default form login -->
+            <!-- Default form login -->
+          </div>
         </div>
       </div>
-    </div>
-  </center>
+    </center>
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
 
   {% endblock body %}
 </html>

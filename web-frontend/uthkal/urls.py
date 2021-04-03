@@ -21,6 +21,17 @@ urlpatterns = [
     path('', views.index,name='home'),
     path('login/',views.login,name='login'),
     path('register/',views.register,name='register'),
+    path('logout/',views.logout,name='logout'),
     path('dashboard/<str:username>',views.dashboard,name='dashboard'),
+    path('dashboard/<str:username>/<str:section>',views.showSections,name='sections'),
+    path('dashboard/<str:username>/<str:section>/update',views.updateCookies,name='update'),
+    path('dashboard/verify/<str:username>',views.verify,name='verify'),
+    path('card/<str:username>',views.share,name='shareCard'),
+
+
+   
+
+
+    
 ]
 

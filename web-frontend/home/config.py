@@ -1,6 +1,8 @@
 url = "https://cardfy.herokuapp.com/api/"
 create_user = "users/"
 login_user = "users/login"
+user_card ="card/me"
+update_card ="card/me"
 
 firebaseConfig = {
     "apiKey": "AIzaSyBhLDAuWnCooJwt-pOaJ58QbOMiaAgyn80",

@@ -1,0 +1,144 @@
+<html>
+  <body>
+    {% block cardBack %}
+
+    <div class="card text-center">
+      <div class="card-header">
+        Cardfy varified creator
+        <img
+          src="static/landing_img/card/verified.png"
+          height="20px"
+          width="20px"
+          class="mx-1"
+        />
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          <img
+            class="rounded-circle z-depth-2"
+            alt="100x100"
+            src="https://www.himalmag.com/wp-content/uploads/2019/07/sample-profile-picture.png"
+            data-holder-rendered="true"
+            height="255px"
+            width="255px"
+          />
+        </p>
+
+        <h4>Stifnie Roger</h4>
+        <p style="font-family: 'Architects Daughter', cursive">
+          Vlogger
+          <img
+            src="static/landing_img/card/youtube.png"
+            height="20px"
+            width="20px"
+            class="mx-1"
+          />
+          | Caring<img
+            src="static/landing_img/card/passion.png"
+            height="20px"
+            width="20px"
+            class="mx-1"
+          />
+          | Nature lover
+          <img
+            src="static/landing_img/card/nature.png"
+            height="20px"
+            width="20px"
+            class="mx-1"
+          />
+        </p>
+
+        <div class="text-muted" style="font-family: 'Open Sans', sans-serif">
+          Hey ! I am currently working as full time vlogger. It's too fun to
+          meet new people everyday, you are one the the most valuable out there
+          <br /><br />
+          Checkout my social profiles and do follow me ! <br />
+        </div>
+        <br />
+        <div class="row">
+          <div class="col -lg-3"></div>
+
+          <div class="col -lg-1">
+            <a class="button">
+              <img
+                src="static/landing_img/card/facebook.png"
+                height="30px"
+                width="30px"
+                class="button mx-1"
+              />
+            </a>
+          </div>
+          <div class="col -lg-1">
+            <a class="button">
+              <img
+                src="static/landing_img/card/instagram.png"
+                height="30px"
+                width="30px"
+                class="button mx-1"
+              />
+            </a>
+          </div>
+          <div class="col -lg-1">
+            <a class="button">
+              <img
+                src="static/landing_img/card/twitter.png"
+                height="30px"
+                width="30px"
+                class="button mx-1"
+              />
+            </a>
+          </div>
+
+          <div class="col -lg-1">
+            <a class="button">
+              <img
+                src="static/landing_img/card/linkedin.png"
+                height="30px"
+                width="30px"
+                class="button mx-1"
+              />
+            </a>
+          </div>
+          <div class="col -lg-1">
+            <a class="button">
+              <img
+                src="static/landing_img/card/whatsapp.png"
+                height="30px"
+                width="30px"
+                class="button mx-1"
+              />
+            </a>
+          </div>
+          <div class="col -lg-1">
+            <a class="button">
+              <img
+                src="static/landing_img/card/gmail.png"
+                height="30px"
+                width="30px"
+                class="button mx-1"
+              />
+            </a>
+          </div>
+          <div class="col -lg-3"></div>
+        </div>
+        <br />
+        <div class="text-muted" style="font-family: 'Open Sans', sans-serif">
+          I am also an environment activist trying to make things better for
+          those who dont speak but had lot to speak
+        </div>
+        <div class="card-header text-muted">
+          {% for i in "four" %}
+          <img
+            src="static/landing_img/card/star.png"
+            height="20px"
+            width="20px"
+            class="button mx-1"
+          />
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% endblock cardBack %}
+  </body>
+</html>

@@ -1,0 +1,1303 @@
+<html>
+   <hread>
+   <script>
+      function previewFile() {
+        var preview = document.querySelector("img");
+        var file = document.querySelector("input[type=file]").files[0];
+        var reader = new FileReader();
+      
+        reader.onloadend = function () {
+          preview.src = reader.result;
+        };
+      
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+      
+          preview.src = "";
+        }
+      }
+   </script>
+   <style>
+
+
+
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Open+Sans:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Rubik:wght@500&display=swap');
+      
+      @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Rubik:wght@500&display=swap');
+ 
+      .cacontainer2
+      {
+      position: relative;
+      flex-wrap: wrap;
+      }
+      .cacontainer2 .card2
+      {
+      margin: 20px;
+      padding: 40px 30px;
+      background: #ebf5fc;
+      border-radius: 40px;
+      box-shadow: -6px -6px 20px rgba(255,255,255,1), 6px 6px 20px rgba(0,0,0,0.1);
+      }
+      .cacontainer2 .card2:hover
+      {
+      }
+      .cacontainer2 .card2 .imgBx
+      {
+      position: relative;
+      text-align: center;
+      }
+      .cacontainer2 .card2 .imgBx img
+      {
+      }
+      .cacontainer2 .card2 .contentBx
+      {
+      position: relative;
+      margin-top: 20px;
+      text-align: center;
+      }
+      .cacontainer2 .card2 .contentBx h2
+      {
+      color: #32a3b1;
+      font-weight: 700;
+      font-size: 1.4em;
+      letter-spacing: 2px;
+      }
+      .cacontainer2 .card2 .contentBx p
+      {
+      color: #32a3b1;
+      }
+      .cacontainer2 .card2 .contentBx a
+      {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 40px;
+      color: #32a3b1;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: -4px -4px 15px rgba(255,255,255,1), 4px 4px 15px rgba(0,0,0,0.1);
+      }
+      .cacontainer2 .card2 .contentBx a:hover
+      {
+      box-shadow: inset -4px -4px 10px rgba(255,255,255,0.5), inset 4px 4px 10px rgba(0,0,0,0.1);
+      }
+      .cacontainer2 .card2 a:hover span
+      {
+      display: block;
+      transform: scale(0.98);
+      }
+      .cacontainer2 .card2:hover .imgBx,
+      .cacontainer2 .card2:hover .contentBx
+      {
+      transform: scale(0.98);
+      }
+      * {
+      margin: 0;
+      padding: 0;
+      }
+      .content {
+      font-family: "Poppins", sans-serif;
+      background: var(--main-bg-color);
+      background: linear-gradient(
+      to right top,
+      var(--main-bg-color),
+      var(--secondary-bg-color)
+      );
+      display: flex;
+      justify-content: center;
+      }
+      .container1 {
+      background-color: rgba(255, 255, 255, 0.9); /* slightly transparent fallback for Firefox */
+      min-height: 20vh;
+      width: 100%;
+      border-radius: 2rem;
+      z-index: 2;
+      display: flex;
+      }
+      /* if backdrop support: very transparent and blurred */
+      @supports ((backdrop-filter: blur(2rem)) or (-webkit-backdrop-filter: blur(2rem))) {
+      .container1 {
+      background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+      );
+      -webkit-backdrop-filter: blur(2rem);
+      backdrop-filter: blur(2rem);
+      }
+      }
+      .dashboard {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+      );
+      border-radius: 2rem;
+      }
+      .link {
+      display: flex;
+      padding: 1rem;
+      margin: 1rem 0rem;
+      align-items: center;
+      }
+      .link img {
+      transform: scale(0.5)
+      }
+      .user,
+      .link h2,
+      .pro,
+      .progress {
+      display: none;
+      }
+      .games {
+      flex: 3;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      }
+      .status {
+      margin-bottom: 1rem;
+      }
+      .status input {
+      background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+      );
+      border: none;
+      width: 50%;
+      padding: 0.5rem;
+      border-radius: 2rem;
+      }
+      .card1 {
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(
+      to left top,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.5)
+      );
+      border-radius: 1rem;
+      margin: 2rem 0rem;
+      padding: 2rem;
+      box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+      justify-content: space-between;
+      }
+      .card1 img {
+      width: 105px;
+      height: 105px;
+      border-radius: 1rem;
+      }
+      .card1-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      }
+      .percentage {
+      font-weight: bold;
+      background: linear-gradient(to right top,
+      var(--main-bg-color),
+      var(--secondary-bg-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      }
+      h1 {
+      color: #426696;
+      font-weight: 600;
+      font-size: 1rem;
+      opacity: 0.8;
+      }
+      h2,h3,h4
+      p {
+      color: #658ec6;
+      font-weight: 500;
+      opacity: 0.8;
+      }
+      h3 {
+      color: #426696;
+      font-weight: 600;
+      opacity: 0.8;
+      }
+      @media screen and (min-width: 640px) {
+      .link img {
+      transform: scale(1)
+      }
+      .link {
+      margin: 1rem 0rem;
+      padding: 1rem 2rem;
+      }
+      }
+      @media screen and (min-width: 1024px){
+      .container1 {
+      width: 80%;
+      }
+      .circle1,
+      .circle2
+      {
+      background: white;
+      background: linear-gradient(
+      to right bottom,
+      rgba(255,209,220,0.8),
+      rgb(251,174,210,0.3)
+      );
+      height: 20rem;
+      width: 20rem;
+      position: absolute;
+      border-radius: 50%;
+      }
+      .circle3
+      {
+      background: white;
+      background: linear-gradient(
+      to right bottom,
+      rgba(255,209,220,0.8),
+      rgb(251,174,210,0.3)
+      );
+      height: 15rem;
+      width: 15rem;
+      position: absolute;
+      border-radius: 50%;
+      }
+      .circle1 {
+      top: 15%;
+      right: 15%;
+      }
+      .circle2 {
+      bottom: 5%;
+      left: 25%;
+      }
+      .circle3{
+      top: 10%;
+      left: 25%;
+      }
+      .glassbg{  top: 10%;
+      left: 35%;}
+      .dashboard {
+      justify-content: space-evenly;
+      }
+      .user {
+      display: block;
+      }
+      .user img {
+      border-radius: 50%;
+      }
+      .link h2 {
+      display: block;
+      padding: 0 2rem;
+      }
+      .pro {
+      display: block;
+      background: linear-gradient(to right top,
+      var(--main-bg-color),
+      var(--secondary-bg-color));
+      border-radius: 2rem;
+      color: white;
+      padding: 1rem;
+      position: relative;
+      }
+      .pro img {
+      position: absolute;
+      top: -10%;
+      right: 10%;
+      }
+      .pro h2 {
+      width: 40%;
+      color: white;
+      font-weight: 600;
+      }
+      .games {
+      margin: 5rem;
+      }
+      h1 {
+      font-size: 3rem;
+      }
+      .status {
+      margin-bottom: 3rem;
+      }
+      .card1 {
+      flex-direction: row;
+      }
+      .card1 img {
+      margin-right: 0.5rem;
+      }
+      .progress {
+      display: block;
+      background: linear-gradient(to right top,
+      var(--main-bg-color),
+      var(--secondary-bg-color));
+      width: 100%;
+      height: 25%;
+      border-radius: 1rem;
+      position: relative;
+      overflow: hidden;
+      } 
+      .progress::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: rgb(236, 236, 236);
+      position: absolute;
+      left: 60%;
+      }
+      }
+      .login-div {
+      width:430px;
+      height: 700px;
+      padding: 60px 35px 35px 35px;
+      border-radius: 40px;
+      background: #ecf0f3;
+      box-shadow: 13px 13px 20px #cbced1,
+      -13px -13px 20px #ffffff;
+      }
+      .logo {
+      background:url("Logo.png");
+      width:100px;
+      height: 100px;
+      border-radius: 50%;
+      margin:0 auto;
+      box-shadow: 
+      /* logo shadow */
+      0px 0px 2px #5f5f5f,
+      /* offset */
+      0px 0px 0px 5px #ecf0f3,
+      /*bottom right */
+      8px 8px 15px #a7aaaf,
+      /* top left */
+      -8px -8px 15px #ffffff
+      ;
+      }
+      .title {
+      font-size: 28px;
+      padding-top: 24px;
+      letter-spacing: 0.5px;
+      }
+      .sub-title {
+      font-size: 15px;
+      padding-top: 7px;
+      letter-spacing: 3px;
+      }
+      .fields {
+      width: 100%;
+      padding: 75px 5px 5px 5px;
+      }
+      .fields input {
+      border: none;
+      outline:none;
+      background: none;
+      font-size: 15px;
+      color: #555;
+      padding:12px 10px 20px 5px;
+      }
+      .username, .password {
+      margin-bottom: 20px;
+      border-radius: 15px;
+      box-shadow: inset 8px 8px 8px #cbced1,
+      inset -8px -8px 8px #ffffff;
+      }
+      .fields svg {
+      height: 22px;
+      margin:0 10px -3px 25px;
+      }
+      .signin-button {
+      outline: none;
+      border:none;
+      cursor: pointer;
+      width:100%;
+      height: 60px;
+      border-radius: 30px;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'Lato', sans-serif;
+      color:#fff;
+      text-align: center;
+      background: #24cfaa;
+      box-shadow: 3px 3px 8px #b1b1b1,
+      -3px -3px 8px #ffffff;
+      transition: 0.5s;
+      }
+      .signin-button:hover {
+      background:#2fdbb6;
+      }
+      .signin-button:active {
+      background:#1da88a;
+      }
+      .link {
+      padding-top: 20px;
+      text-align: center;
+      }
+      .link a {
+      text-decoration: none;
+      color:#aaa;
+      font-size: 15px;
+      }
+      form {
+      margin: 0 0;
+      display: block;
+      background: white;
+      box-shadow: 0 5px 25px 0 rgba(231, 0, 0, .4);
+      border-radius: 10px;
+      padding: 4em;
+      }
+      /* CLASSES */
+      .containers { 
+      }
+      /* Form */
+      .group { 
+      position: relative; 
+      margin-bottom: 45px; 
+      }
+      input {
+      font-size: 18px;
+      padding: 10px 10px 10px 5px;
+      display: block;
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #e6e6e6;
+      }
+      input:focus {
+      outline: none; 
+      }
+      label {
+      color: #c1c1c1; 
+      font-size: 18px;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 5px;
+      top: 10px;
+      transition: 0.2s ease all; 
+      -moz-transition: 0.2s ease all; 
+      -webkit-transition: 0.2s ease all;
+      }
+      input:focus ~ label, input:valid ~ label {
+      top: -20px;
+      font-size: 14px;
+      color: #dc3545;
+      }
+      .bar { 
+      position: relative; 
+      display: block; 
+      width: 100%; 
+      }
+      .bar:before, .bar:after {
+      content: '';
+      height: 2px; 
+      width: 0;
+      bottom: 0; 
+      position: absolute;
+      background: #dc3545; 
+      transition: 0.2s ease all; 
+      -moz-transition: 0.2s ease all; 
+      -webkit-transition: 0.2s ease all;
+      }
+      .bar:before {
+      left: 50%;
+      }
+      .bar:after {
+      right: 50%; 
+      }
+      input:focus ~ .bar:before, input:focus ~ .bar:after {
+      width: 50%;
+      }
+      /* Button */
+      .button2,.btn-secondary2 {
+      cursor: pointer;
+      padding: 10px 35px;
+      font-size: 18px;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: Roboto Mono,Courier New,Courier,monospace!important;
+      line-height: 1;
+      color: #ffffff;
+      border-radius: 4px;
+      background: linear-gradient(-45deg, #E94763, #E99447, #E9CD47, #5CE947, #47E9D4, #47A3E9, #5547E9, #A347E9, #E947A3, #E9476A);
+      background-size: 1100%;
+      border: none;
+      position: relative;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+      transition: background-position 3s cubic-bezier(.455,.03,.515,.955),-webkit-transform .3s cubic-bezier(.175,.885,.32,1.275);
+      transition: transform .3s cubic-bezier(.175,.885,.32,1.275),background-position 3s cubic-bezier(.455,.03,.515,.955);
+      transition: transform .3s cubic-bezier(.175,.885,.32,1.275),background-position 3s cubic-bezier(.455,.03,.515,.955),-webkit-transform .3s cubic-bezier(.175,.885,.32,1.275)
+      }
+      .button2 {
+      margin: 30px 0;
+      transition: bottom .3s cubic-bezier(.175,.885,.32,1.275),background-position 3s cubic-bezier(.455,.03,.515,.955),-webkit-transform .3s cubic-bezier(.175,.885,.32,1.275);
+      transition: transform .3s cubic-bezier(.175,.885,.32,1.275),bottom .3s cubic-bezier(.175,.885,.32,1.275),background-position 3s cubic-bezier(.455,.03,.515,.955);
+      transition: transform .3s cubic-bezier(.175,.885,.32,1.275),bottom .3s cubic-bezier(.175,.885,.32,1.275),background-position 3s cubic-bezier(.455,.03,.515,.955),-webkit-transform .3s cubic-bezier(.175,.885,.32,1.275)
+      }
+      .button2,.button2 .btn-secondary2 {
+      background-position: 0 50%;
+      bottom: 0
+      }
+      .button2 .btn-secondary2 {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      -webkit-filter: blur(16px);
+      filter: blur(16px);
+      opacity: .9;
+      -webkit-transform: scale3d(.9,.9,1);
+      transform: scale3d(.9,.9,1);
+      transition: bottom .3s cubic-bezier(.175,.885,.32,1.275),background-position 3s cubic-bezier(.455,.03,.515,.955),-webkit-transform .3s cubic-bezier(.175,.885,.32,1.275),-webkit-filter .3s cubic-bezier(.175,.885,.32,1.275);
+      transition: transform .3s cubic-bezier(.175,.885,.32,1.275),filter .3s cubic-bezier(.175,.885,.32,1.275),bottom .3s cubic-bezier(.175,.885,.32,1.275),background-position 3s cubic-bezier(.455,.03,.515,.955);
+      transition: transform .3s cubic-bezier(.175,.885,.32,1.275),filter .3s cubic-bezier(.175,.885,.32,1.275),bottom .3s cubic-bezier(.175,.885,.32,1.275),background-position 3s cubic-bezier(.455,.03,.515,.955),-webkit-transform .3s cubic-bezier(.175,.885,.32,1.275),-webkit-filter .3s cubic-bezier(.175,.885,.32,1.275)
+      }
+      .button2:focus,.button2:hover {
+      -webkit-transform: scale3d(1.1,1.1,1);
+      transform: scale3d(1.1,1.1,1);
+      background-position: 100% 50%;
+      outline: none;
+      bottom: 2px
+      }
+      .button2:focus .btn-secondary2,.button2:hover .btn-secondary2 {
+      background-position: 100% 50%;
+      bottom: -5px;
+      -webkit-filter: blur(25px);
+      filter: blur(25px)
+      }
+
+
+
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index:3;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+   </style>
+   </head>
+   <body style="background:#EEEEFF;">
+      {% extends 'base_dashboard.html' %}
+      {% block body %}
+
+
+
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<h4>Copy And share with others </h4>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+		https://cardfy-web.herokuapp.com/card/{{card.username}}
+		</div>
+	</div>
+</div>
+
+
+      {% comment %} thhis is codepen {% endcomment %}
+      <div style="margin-top:5%;font-family: 'Fredoka One', cursive; ">
+         <div class="content">
+            <section class="container1 container">
+               <center>
+                  <div  class="row">
+                     <div class="col-lg-3 col-sm-12  col-md-12" >
+                        <div class="cacontainer2 " >
+                           <div class="card2">
+                              <div class="imgsBx">
+                              </div>
+                              <div class="contentBx">
+                                 <h2>Card Sections</h2>
+                                 {% comment %} 
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam laboriosam omnis dolore amet sequi nobis provident nisi esse optio recusandae quod.</p>
+                                 {% endcomment %}
+                                 <a href="/dashboard/{{user.username}}"><span>My Card</span></a>
+                                 <a href="/dashboard/{{user.username}}/general"><span>General</span></a>
+                                 <a href="/dashboard/{{user.username}}/social" ><span id="sp">Social Profile</span></a>
+                                 <a href="/dashboard/{{user.username}}/address"><span>Address Settings</span></a>
+                                 <a href="/dashboard/{{user.username}}/storyline"><span>Stroy Line</span></a>
+                                 <a href="/dashboard/{{user.username}}/payment"><span>Payment </span></a>
+                                 <a href="/dashboard/{{user.username}}/communities"><span>Communities</span></a>
+                                 <a href="#popup1"><span>Share</span></a>
+                                 <a href="/dashboard/{{user.username}}/verification"><span>Verification</span></a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-9 col-sm-12">
+                        {% comment %} general section starts here {% endcomment %}
+                        <div class="container" style="margin-top:2rem">
+                           <div class="card2" style="">
+                              <div class="imgsBx">
+                              </div>
+                              <div class="contentBx">
+                                 {% if general %}
+                                 <div class="container" id="gContainer">
+                                    <form  
+                                       action="/dashboard/{{user.username}}/{{general}}/update" 
+                                       method="post"
+                                       enctype="multipart/form-data"
+                                       >
+                                       {% csrf_token %}
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="name"
+                                             value="{{user.name}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>Display Name</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             value="{{user.username}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>Username</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text"
+                                             value="{{user.email}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>Email</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="file" name="files" accept="image/*" />
+                                          <label>Change Your Profile Image</label>
+                                       </div>
+                                       <div class="btn-wrapper">
+                                          <button type="submit" value="submit"  class="button2 btn-primary2">
+                                             Save changes
+                                             <div class="btn-secondary2"></div>
+                                          </button>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 {% comment %} general section ends here {% endcomment %}
+                                 {% elif social %}
+                                 <div class="container">
+                                    <form action="/dashboard/{{user.username}}/social/update" method="post">
+                                       {% csrf_token %}
+                                       <div class="group">      
+                                          <input type="text"
+                                             name="facebook" 
+                                             value="{{card.facebook}}"
+                                             required
+                                             />
+                                          <span class="bar"></span>
+                                          <label>Facebook</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="instagram" 
+                                             value="{{card.insagram}}"
+                                             required  
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Instagram</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="twitter" 
+                                             required
+                                             value="{{card.twitter}}"
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Twitter</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="linkedin" 
+                                             value="{{card.linkedin}}"
+                                             required
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Linkedin</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="whatsapp" 
+                                             required
+                                             value="{{card.whatsapp}}"
+                                             required
+                                             >
+                                          <span class="bar"></span>
+                                          <label>WhatsApp No.</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="gmail" 
+                                             value="{{card.gmail}}"
+                                             required
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Gmail</label>
+                                       </div>
+                                       <div class="btn-wrapper">
+                                          <button type="submit" value="submit" formnovalidate class="button2 btn-primary2">
+                                             Save changes
+                                             <div class="btn-secondary2"></div>
+                                          </button>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 {% comment %} address starts here {% endcomment %}
+                                 {% elif address%}
+                                 <div class="container">
+                                    <form action="/dashboard/{{user.username}}/address/update" method="post">
+                                       {% csrf_token %}
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="address"
+                                             value="{{card.address}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>Address </label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="city"
+                                             value="{{card.city}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>City</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="state"
+                                             value="{{card.state}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>State</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="country"
+                                             value="{{card.country}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>Country</label>
+                                       </div>
+                                       <div class="btn-wrapper">
+                                          <button type="submit" value="submit"  class="button2 btn-primary2">
+                                             Save changes
+                                             <div class="btn-secondary2"></div>
+                                          </button>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 {% comment %} story line starts here  {% endcomment %}
+                                 {% elif storyline %}
+                                 <div class="container">
+                                    <form action="/dashboard/{{user.username}}/storyline/update" method="post">
+                                       {% csrf_token %}
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="intro"
+                                             value="{{card.intro}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>Intro / Bio / Company</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="short_desc"
+                                             value="{{card.short_desc}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>Describe Youself / Your work  </label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="long_desc"
+                                             value="{{card.long_desc}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>Tell something more about you</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="fund_desc"
+                                             value="{{card.fund_desc}}"
+                                             required>
+                                          <span class="bar"></span>
+                                          <label>Fund / Payment  Description</label>
+                                       </div>
+                                       <div class="btn-wrapper">
+                                          <button type="submit" value="submit"  class="button2 btn-primary2">
+                                             Save changes
+                                             <div class="btn-secondary2"></div>
+                                          </button>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 {% comment %} payment starts here {% endcomment %}
+                                 {% elif payment %}
+                                 <div class="container">
+                                    <form action="/dashboard/{{user.username}}/payment/update" method="post">
+                                       {% csrf_token %}
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="upi"
+                                             required
+                                             value="{{card.upi}}"
+                                             >
+                                          <span class="bar"></span>
+                                          <label>UPI ID </label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="gpay"
+                                             required
+                                             value="{{card.gpay}}"
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Google Pay Phone No. </label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="ppay"
+                                             required
+                                             value="{{card.ppay}}"
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Phone Pay Phone No.</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="paytm"
+                                             required
+                                             value="{{card.paytm}}"
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Paytm UPI </label>
+                                       </div>
+                                       <div class="btn-wrapper">
+                                          <button type="submit" formnovalidate  value="submit"  class="button2 btn-primary2">
+                                             Save changes
+                                             <div class="btn-secondary2"></div>
+                                          </button>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 {% comment %} communities {% endcomment %}
+                                 {% elif communities %}
+                                 <div class="container">
+                                    <form action="/dashboard/{{user.username}}/communities/update" method="post">
+                                       {% csrf_token %}
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="discord"
+                                             required
+                                             value="{{card.discord}}"
+                                             />
+                                          <span class="bar"></span>
+                                          <label>Discord Channel Link</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="slack"
+                                             required
+                                             value="{{card.slack}}"
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Slack Link </label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="youtube"
+                                             required
+                                             value="{{card.youtube}}"
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Youtube Channel Link</label>
+                                       </div>
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="skype"
+                                             required
+                                             value="{{card.skype}}"
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Skype Profile </label>
+                                       </div>
+                                       <div class="btn-wrapper">
+                                          <button type="submit" formnovalidate value="submit"  class="button2 btn-primary2">
+                                             Save changes
+                                             <div class="btn-secondary2"></div>
+                                          </button>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 {% elif verification %}
+                            
+                                 <br>
+                                 <br>
+                    
+                                 {% if otp == "True" %}
+                                     <div class="container">
+                                    <form action="/dashboard/{{user.username}}/verification" method="post">
+                                       {% csrf_token %}
+                                       <div class="group">      
+                                          <input type="text" 
+                                             name="otp"
+                                             required
+                                            
+                                             >
+                                          <span class="bar"></span>
+                                          <label>Enter One Time Password Sent To {{user.email}}</label>
+                                       </div>
+                                       <div class="btn-wrapper">
+                                          <button type="submit" formnovalidate value="submit"  class="button2 btn-primary2">
+                                             Verify
+                                             <div class="btn-secondary2"></div>
+                                          </button>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 {% elif card.isVerified == "True" %}
+                                      <div class="container">
+                                    
+                                       {% csrf_token %}
+                                       <img class ="img" src ="/static/dashboard/done2.png" height="400px" width="400x">
+                                      
+                                       {% comment %} <div class="btn-wrapper">
+                                          <button type="submit" formnovalidate value="submit"  class="button2 btn-primary2">
+                                             Verify
+                                             <div class="btn-secondary2"></div>
+                                          </button>
+                                       </div> {% endcomment %}
+                                  
+                                 </div>
+                                     Wohoo! You are already verified
+
+                                 {% else %}
+                                    <div class="container">
+                                    <form action="/dashboard/{{user.username}}/verification" method="post">
+                                       {% csrf_token %}
+                                       <img class ="img-fluid" src ="/static/dashboard/ver.png" height="300px" width="300x">
+       
+                                       <div class="btn-wrapper">
+                                          <button type="submit" formnovalidate value="submit"  class="button2 btn-primary2">
+                                             Verify
+                                             <div class="btn-secondary2"></div>
+                                          </button>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 {% endif %}
+                              
+                                 {% else %}
+                                 <div id ="card-front" class="text-center">
+                                    <div class="card-header  " style=" font-family: 'Karla', sans-serif;font-size:18 ;color:#6583aa">
+                                       {% if card.isVerified == "True" %}
+                                       Cardfy verified creator 
+                                       
+                                       <img src = "../static/landing_img/card/verified.png" height ="20px" width="20px" class="mx-1">
+                                    {% else %}
+                                       Verification Pending
+                                       <img src = "../static/dashboard/information.png" height ="20px" width="20px" class="mx-1">
+
+
+                                    {% endif %}
+                                    <a href="#popup1">
+                                     <img  style="float:left"src = "../static/dashboard/sharing.png" height ="20px" width="20px" class="mx-1"></a>
+                                       <span style="float:right" id="flipBack"> <img src = "../static/landing_img/card/rotation.png" height ="20px" width="20px" class="mx-1"></span>
+                                    </div>
+                                    <div class="card-body ">
+                                       <p class="card-text">
+                                          <img class="rounded-circle z-depth-2 " alt="100x100" src="{{card.profile_image}}"
+                                             data-holder-rendered="true" height="255px" width="255px">
+                                       </p>
+                                       <h4  class="text-muted" style="  color: #658ec6;
+                                             font-weight: 500;
+                                             opacity: 0.8;">{{card.name}}</h4>
+                                       <p style="font-family: 'Architects Daughter', cursive;">
+                                          {{card.intro}}
+                                       </p>
+                                       <div class ="text-muted" style=" font-family: 'Karla', sans-serif;font-size:18 ;color:#6583aa">
+                                          {{card.short_desc}} <br>
+                                       </div>
+                                       <br>
+                                       <div class = "row">
+                                          <div class ="col -lg-3"></div>
+                                          <div class ="col -lg-1">
+                                         
+                                             <a class="button" href="{{card.facebook}}">
+                                             <img src = "../static/landing_img/card/facebook.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1">
+                                             <a class="button" href="{{card.insagram}}">
+                                             <img src = "../static/landing_img/card/instagram.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1"     >
+                                             <a class="button"  href="{{card.twitter}}">
+                                             <img src = "../static/landing_img/card/twitter.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1" >
+                                             <a class="button"   href="{{card.linkedin}}">
+                                             <img src = "../static/landing_img/card/linkedin.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1">
+                                             <a class="button"  href="http://wa.me/{{card.whatsapp}}">
+                                             <img src = "../static/landing_img/card/whatsapp.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1">
+                                             <a class="button" href="mailto:{{card.email}}">
+                                             <img src = "../static/landing_img/card/gmail.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-3"></div>
+                                       </div>
+                                       <br>
+                                       <div class ="text-muted" style=" font-family: 'Karla', sans-serif;font-size:18 ;color:#6583aa">
+                                          {{card.long_desc}}
+                                       </div>
+                                       <div class="mt-4 card-header text-muted">
+                                          {% for i  in "the" %}
+                                          <img src = "../static/landing_img/card/star.png" height ="20px" width="20px" class="button mx-1">
+                                          {% endfor %}
+                                       </div>
+                                    </div>
+                                 </div>
+                                 {% comment %} card front ends here {% endcomment %}
+                                 <div id="card-back" 
+                                 >
+                                    <div class="card-header text-center "style=" font-family: 'Karla', sans-serif;font-size:18 ;color:#6583aa">
+                    
+                                    {% if card.isVerified == "True"%}
+                                       Cardfy varified creator 
+                                       <img src = "../static/landing_img/card/verified.png" height ="20px" width="20px" class="mx-1">
+                                    {% else %}
+                                       Verification Pending
+                                       <img src = "../static/dashboard/information.png" height ="20px" width="20px" class="mx-1">
+
+
+                                    {% endif %}
+                                    <a href="#popup1">
+                                     <img  style="float:right"src = "../static/dashboard/sharing.png" height ="20px" width="20px" class="mx-1"></a>
+                                       <span style="float:left" id="flipFront"> <img src = "../static/landing_img/card/rotation.png" height ="20px" width="20px" class="mx-1"></span>
+                                    </div>
+                                    <div class="card-body ">
+                                       <p class="card-text">
+                                       <div id="map-container" class="z-depth-1 map-container mb-5"  >
+                                          <iframe style="width:100%" src="https://maps.google.com/maps?q={{card.address}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                                             style="border:0" allowfullscreen></iframe>
+                                       </div>
+                                       </p>
+                                      <h6 class="text-muted" style="color: #658ec6;
+                                             font-weight: 500;
+                                             opacity: 0.8;">Let's Meet Up  <img src ="../static/landing_img/card/handshake.png" heiht="25px" width="25px"/></h6>
+                                       <p class ="text-muted" style=" font-family: 'Karla', sans-serif;font-size:18 ;color:#6583aa">
+                                          {{card.address}}
+                                       </p>
+                                       <h6 class="text-muted" style="  color: #658ec6;
+                                             font-weight: 500;
+                                             opacity: 0.8;">Praise me  <img src ="../static/landing_img/card/clap.png" heiht="25px" width="25px"/>
+                                       </h6>
+                                       <p>
+                                       <div class = "row">
+                                          <div class ="col -lg-4"></div>
+                                          <div class ="col -lg-1">
+                                             <a class="button" href="upi://pay?pa={{card.upi}}&amp;pn={{card.name}} K&amp;cu=INR">
+                                             <img src = "../static/landing_img/card/upi.png" height ="40px" width="40px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1" >
+                                             <a class="button" href="upi://pay?pa={{card.upi}}&amp;pn={{card.name}} K&amp;cu=INR">
+                                             <img src = "../static/landing_img/card/gpay2.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1">
+                                             <a class="button" href="upi://pay?pa={{card.upi}}&amp;pn={{card.name}} K&amp;cu=INR">
+                                             <img src = "../static/landing_img/card/phone_pay.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1">
+                                             <a class="button" href="upi://pay?pa={{card.upi}}&amp;pn={{card.name}} K&amp;cu=INR">
+                                             <img src = "../static/landing_img/card/paytm.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-4"></div>
+                                       </div>
+                                       </p>
+                                       <div class ="text-muted" style=" font-family: 'Karla', sans-serif;font-size:18 ;color:#6583aa">
+                                          {{card.fund_desc}}
+                                          <br>
+                                       </div>
+                                       <br>
+                                       <h6 class="text-muted" style="  color: #658ec6;
+                                             font-weight: 500;
+                                             opacity: 0.8;">Join me at<img class="ml-1" src ="../static/landing_img/card/wave.png" heiht="25px" width="25px"/>
+                                       </h6>
+                                       <br>
+                                       <div class = "row">
+                                          <div class ="col -lg-4"></div>
+                                          <div class ="col -lg-1">
+                                             <a class="button" href="{{card.discord}}">
+                                             <img src = "../static/landing_img/card/discord.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1">
+                                             <a class="button" href="{{card.slack}}">
+                                             <img src = "../static/landing_img/card/slack.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1" >
+                                             <a class="button" href="{{card.skype}}">
+                                             <img src = "../static/landing_img/card/skype.png" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-1" >
+                                             <a class="button" href="{{card.youtube}}">
+                                             <img src = "https://firebasestorage.googleapis.com/v0/b/cardfy-88800.appspot.com/o/assets%2Fyoutube.png?alt=media&token=526f73c9-cfe6-4bbe-b23d-8545eb198525" height ="30px" width="30px" class="button mx-1">
+                                             </a>
+                                          </div>
+                                          <div class ="col -lg-4"></div>
+                                       </div>
+                                       <br>
+                                       <br>
+                                       <div class="card-header text-muted text-center">
+                                          {% for i in "four" %}
+                                          <img src = "../static/landing_img/card/star.png" height ="20px" width="20px" class="button mx-1">
+                                          {% endfor %}
+                                       </div>
+                                    </div>
+                                 </div>
+                                 {% endif %}
+                              </div>
+                           </div>
+                        </div>
+                        {% comment %} genral sections ends here  {% endcomment %}
+                     </div>
+                  </div>
+                  {% comment %} 
+                  <div class="gamess">
+                     <div class="login-div">
+                        <div class="fields align-content-lg-start" style="float:left">
+                           <span > Display Name<span>
+                           <div class="username">
+                              <input type="text" class="user-input" placeholder="Display Name" />
+                           </div>
+                           <div class="username">
+                              <input type="text" class="user-input" placeholder="Email Address" />
+                           </div>
+                           <div class="username">
+                              <input type="text" class="user-input" placeholder="Display Name" />
+                           </div>
+                           <div class="password"><input type="text" class="pass-input" placeholder="password" /></div>
+                        </div>
+                        <button class="signin-button">Login</button>
+                        <div class="link">
+                           <a href="#">Forgot password?</a> or <a href="#">Sign up</a>
+                        </div>
+                     </div>
+                  </div>
+                  {% endcomment %}
+         </div>
+         </section>
+         </main>
+      </div>
+      </center>
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <script>
+         $(document).ready(function(){
+           $("#card-back").hide();
+         $("#flipBack").click(function(){
+           $("#card-front").fadeOut(1000,function(){
+             $("#card-back").fadeIn(1000);
+         
+           });
+         });
+         
+         $("#flipFront").click(function(){
+           $("#card-back").fadeOut(1000,function(){
+             $("#card-front").fadeIn(1000);
+         
+           });
+         });
+         
+         });
+      </script>
+      {% endblock body %}
+      {% comment %} this is coepen end {% endcomment %}
+   </body>
+</html>
