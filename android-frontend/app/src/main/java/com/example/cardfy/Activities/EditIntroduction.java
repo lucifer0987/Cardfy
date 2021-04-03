@@ -47,7 +47,7 @@ public class EditIntroduction extends AppCompatActivity {
                 CurrCard.setInstagram(instagram.getText().toString().trim());
                 CurrCard.setTwitter(twitter.getText().toString().trim());
                 CurrCard.setLinkedin(linkedin.getText().toString().trim());
-                CurrCard.setWhatsapp("http://wa.me/"+whatsapp.getText().toString().trim());
+                CurrCard.setWhatsapp(whatsapp.getText().toString().trim());
                 CurrCard.setEmail(email.getText().toString().trim());
                 CurrCard.setGmail(email.getText().toString().trim());
                 updateDB();
@@ -122,12 +122,7 @@ public class EditIntroduction extends AppCompatActivity {
         instagram.setText(CurrCard.getInstagram());
         twitter.setText(CurrCard.getTwitter());
         linkedin.setText(CurrCard.getLinkedin());
-        String whats = CurrCard.getWhatsapp();
-        if(whats.equals("")){
-            whatsapp.setText(whats);
-        }else{
-            whatsapp.setText(CurrCard.getWhatsapp().substring(13));
-        }
+        whatsapp.setText(CurrCard.getWhatsapp());
         email.setText(CurrCard.getEmail());
     }
 

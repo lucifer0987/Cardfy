@@ -108,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
         whatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                performClick(whatsapp, CurrCard.getWhatsapp());
+                String url = "http://wa.me/"+CurrCard.getWhatsapp();
+                performClick(whatsapp, url);
             }
         });
 
@@ -220,8 +221,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Init();
-        GetCard();
+        token = Paper.book().read("token", "");
+        CurrCard = Paper.book().read("CurrUser", null);
+        if(!token.equals("") && CurrCard != null) {
+            Init();
+            InitData();
+        }
     }
 
     private void GetCard() {

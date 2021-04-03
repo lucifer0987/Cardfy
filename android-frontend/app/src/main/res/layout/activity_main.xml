@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:padding="16dp"
-                android:visibility="invisible"
+                android:visibility="visible"
                 android:background="@drawable/card_bg">
 
                 <ImageView
@@ -273,7 +273,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:padding="16dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:background="@drawable/card_bg">
 
                 <ImageView
