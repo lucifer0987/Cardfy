@@ -4,6 +4,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -92,9 +95,23 @@ public class MainActivity extends AppCompatActivity {
         share_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                String shareBody = "https://cardfy-web.herokuapp.com/card/"+CurrCard.getUsername();
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("url", shareBody);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(MainActivity.this, "URL has been copied to clipboard too.", Toast.LENGTH_SHORT).show();
+
+                intent.setType("text/plain");
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Hi, this is my card.");
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(intent, "Share Your Profile Link with"));
+                /*
                 Intent i = new Intent(MainActivity.this, ShareProfile.class);
                 startActivity(i);
                 finish();
+                 */
             }
         });
 
