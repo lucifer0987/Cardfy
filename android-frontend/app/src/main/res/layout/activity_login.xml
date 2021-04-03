@@ -8,8 +8,8 @@
     tools:context=".Activities.LogInActivity">
 
     <ImageView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="60dp"
         android:id="@+id/logo"
         android:layout_centerHorizontal="true"
