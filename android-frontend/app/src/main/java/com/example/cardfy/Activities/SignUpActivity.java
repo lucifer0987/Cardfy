@@ -4,16 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.cardfy.Modals.SignUpPost;
@@ -21,6 +25,7 @@ import com.example.cardfy.Modals.User;
 import com.example.cardfy.Modals.UserInfoGet;
 import com.example.cardfy.R;
 import com.example.cardfy.Retrofit_Interface.RetrofitClient;
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,7 +36,9 @@ import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 
 import retrofit2.Call;
@@ -43,7 +50,8 @@ public class SignUpActivity extends AppCompatActivity {
     EditText name, email, username, password1, password2;
     Uri pickedImgUri;
     ImageView addpic;
-    Button signup, signin;
+    ImageButton signup, signin;
+    ProgressBar pr_sign_up;
     String emailtxt = "", nametxt = "", usernametxt = "", password1txt = "", password2txt = "", image_url_txt = "";
 
     @Override
@@ -74,6 +82,9 @@ public class SignUpActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                signup.setVisibility(View.INVISIBLE);
+                pr_sign_up.setVisibility(View.VISIBLE);
+
                 try {
                     emailtxt = email.getText().toString().trim();
                     password1txt = password1.getText().toString();
@@ -93,12 +104,16 @@ public class SignUpActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(SignUpActivity.this, "Please Verify all fields", Toast.LENGTH_SHORT).show();
                         }
+                        signup.setVisibility(View.VISIBLE);
+                        pr_sign_up.setVisibility(View.INVISIBLE);
 
                     } else {
                         //everything is ok and fields are filled now we can go to next step
                         uploadImage();
                     }
                 } catch (Exception e) {
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
                     Toast.makeText(SignUpActivity.this, "Please enter details in correct format!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -109,18 +124,29 @@ public class SignUpActivity extends AppCompatActivity {
         StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("user_images");
         final StorageReference imageFilePath = mStorage.child(usernametxt);
 
-        imageFilePath.putFile(pickedImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+        imageFilePath.putFile(pickedImgUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                //image uploaded successfully
-                imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Log.e("this", "Uploaded Successfully!!");
-                        image_url_txt = uri.toString();
-                        uploadData();
-                    }
-                });
+            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                if(task.isSuccessful()){
+                    //image uploaded successfully
+                    imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Log.e("this", "Uploaded Successfully!!");
+                            image_url_txt = uri.toString();
+                            uploadData();
+                        }
+                    });
+                }else{
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
+                }
+            }
+        }).addOnCanceledListener(new OnCanceledListener() {
+            @Override
+            public void onCanceled() {
+                signup.setVisibility(View.VISIBLE);
+                pr_sign_up.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -139,12 +165,18 @@ public class SignUpActivity extends AppCompatActivity {
                     startActivity(i);
                 }else if(response.code() == 400){
                     Toast.makeText(SignUpActivity.this, "Some Failure Occured!! Please Try Again!!", Toast.LENGTH_SHORT).show();
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
                     deleteImage();
                 }else if(response.code() == 401){
                     Toast.makeText(SignUpActivity.this, "This Email is already associated with some other account!!", Toast.LENGTH_SHORT).show();
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
                     deleteImage();
                 }else if(response.code() == 405){
                     Toast.makeText(SignUpActivity.this, "Username Taken!! Please use another", Toast.LENGTH_SHORT).show();
+                    signup.setVisibility(View.VISIBLE);
+                    pr_sign_up.setVisibility(View.INVISIBLE);
                     deleteImage();
                 }
             }
@@ -152,6 +184,8 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<UserInfoGet> call, Throwable t) {
                 Toast.makeText(SignUpActivity.this, "Some Failure Occured!! Please Try Again!!", Toast.LENGTH_SHORT).show();
+                signup.setVisibility(View.VISIBLE);
+                pr_sign_up.setVisibility(View.INVISIBLE);
                 deleteImage();
                 Log.e("this", String.valueOf(t.getMessage()));
             }
@@ -181,7 +215,7 @@ public class SignUpActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
                 pickedImgUri = result.getUri();
-                addpic.setImageURI(pickedImgUri);
+                compressImage();
 
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
@@ -190,10 +224,29 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
+    private void compressImage() {
+        InputStream imageStream = null;
+        try {
+            imageStream = getContentResolver().openInputStream(pickedImgUri);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Bitmap bmp = BitmapFactory.decodeStream(imageStream);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 20, stream);
+
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), bmp, "image", "image");
+        pickedImgUri = Uri.parse(path);
+        addpic.setImageURI(pickedImgUri);
+    }
+
+
     private void Init() {
         signup = findViewById(R.id.sign_up);
-        signin = findViewById(R.id.sign_in);
+        signin = findViewById(R.id.login);
         addpic = findViewById(R.id.add_pic);
+        pr_sign_up = findViewById(R.id.pr_sign_up);
 
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
