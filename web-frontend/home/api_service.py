@@ -127,6 +127,11 @@ def getShareCard(username):
 def updateCard(card,token):
     url = config.url + config.update_card
     header = {"x-auth-token":token}
+    print("api service ",(card.isVerified))
+    if card.isVerified == "False" or card.isVerified == False:
+        card.isVerified=False
+    else:
+        card.isVerified = True
     body = {
     "rating": card.rating,
     "isVerified": bool(card.isVerified),

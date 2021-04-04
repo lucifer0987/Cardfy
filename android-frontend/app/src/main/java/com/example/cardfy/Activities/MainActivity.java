@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, EditProfileHome.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
                 finish();
             }
@@ -233,17 +234,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        token = Paper.book().read("token", "");
-        CurrCard = Paper.book().read("CurrUser", null);
-        if(!token.equals("") && CurrCard != null) {
-            Init();
-            InitData();
-        }
     }
 
     private void GetCard() {

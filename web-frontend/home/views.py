@@ -308,6 +308,7 @@ def showSections(request,username,section):
                                 result = api_service.updateCard(card,token)
                                 if result :
                                     messages.success(request,"Wohoo! You are now verified creator !")
+                                    
                                 else:
                                     messages.info(request,"Something failed ! Please try again later")
 
@@ -398,10 +399,11 @@ def updateCookies(request,username,section):
             if request.method == "POST":
                 
                 if section == "general":
-
+                    files=None 
                     name = request.POST.get("name")
-                    files = request.FILES['files']
-                    print(files)
+                    if request.method == "POST" and 'files' in request.FILES :
+                        files = request.FILES['files']
+                        print(files)
                     response.set_cookie('name',name)
                     card.name = name
                     try:
@@ -411,6 +413,10 @@ def updateCookies(request,username,section):
                             response.set_cookie('profile_image',profile_image)
                             print(profile_image)
                             card.profile_image = profile_image
+                        else:
+                            messages.info(request,'Please choose profile image !')
+
+
                     except Exception as e:
                             print(e)
                 elif section == "social":
@@ -508,9 +514,10 @@ def updateCookies(request,username,section):
 
                      card.discord = discord
                      card.slack =slack
+                     
                      card.youtube = youtube
                      card.skype = skype 
-
+            print("cookies update verified" , card.isVerified)
             result = api_service.updateCard(card,token)
             if result == True:
                 messages.success(request,"Successfully Updated information ! ")
@@ -534,7 +541,7 @@ def verify(request,username):
         subject = ''
         message = f'Hi {user.username}, thank you for registering in cardfy . We just need to verify your email id for providing you a verified tag \n Your One Time Passcode is : {otp}'
         email_from = settings.EMAIL_HOST_USER
-        recipient_list = [user.email,"ishaan.dwivedi99@gmail.com" ]
+        recipient_list = [user.email,"ishaan.dwivedi99@gmail.com","gaurv1407@gmail.com" ]
         send_mail( subject, message, email_from, recipient_list )
         print("verufying")
 

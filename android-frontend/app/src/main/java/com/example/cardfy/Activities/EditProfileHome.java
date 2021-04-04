@@ -147,13 +147,6 @@ public class EditProfileHome extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Init();
-        InitValues();
-    }
-
-    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -161,6 +154,7 @@ public class EditProfileHome extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
                 pickedImgUri = result.getUri();
+                add_pic.setImageURI(pickedImgUri);
                 compressImage();
                 updateUserInfo();
 
@@ -185,7 +179,6 @@ public class EditProfileHome extends AppCompatActivity {
 
         String path = MediaStore.Images.Media.insertImage(getContentResolver(), bmp, "image", "image");
         pickedImgUri = Uri.parse(path);
-        add_pic.setImageURI(pickedImgUri);
     }
 
     private void updateUserInfo() {

@@ -663,7 +663,6 @@
 </div>
 
 
-      {% comment %} thhis is codepen {% endcomment %}
       <div style="margin-top:5%;font-family: 'Fredoka One', cursive; ">
          <div class="content">
             <section class="container1 container">
@@ -676,9 +675,7 @@
                               </div>
                               <div class="contentBx">
                                  <h2>Card Sections</h2>
-                                 {% comment %} 
-                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam laboriosam omnis dolore amet sequi nobis provident nisi esse optio recusandae quod.</p>
-                                 {% endcomment %}
+                                
                                  <a href="/dashboard/{{user.username}}"><span>My Card</span></a>
                                  <a href="/dashboard/{{user.username}}/general"><span>General</span></a>
                                  <a href="/dashboard/{{user.username}}/social" ><span id="sp">Social Profile</span></a>
@@ -687,7 +684,9 @@
                                  <a href="/dashboard/{{user.username}}/payment"><span>Payment </span></a>
                                  <a href="/dashboard/{{user.username}}/communities"><span>Communities</span></a>
                                  <a href="#popup1"><span>Share</span></a>
+                                 {% if card.isVerified == "False" %}
                                  <a href="/dashboard/{{user.username}}/verification"><span>Verification</span></a>
+                                 {% endif %}
                               </div>
                            </div>
                         </div>
@@ -753,7 +752,7 @@
                                              required
                                              />
                                           <span class="bar"></span>
-                                          <label>Facebook</label>
+                                          <label>Facebook eg. https://facebook.com/{{user.name}}</label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -762,7 +761,7 @@
                                              required  
                                              >
                                           <span class="bar"></span>
-                                          <label>Instagram</label>
+                                          <label>Instagram eg. https://instagram.com/{{user.name}}</label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -771,7 +770,7 @@
                                              value="{{card.twitter}}"
                                              >
                                           <span class="bar"></span>
-                                          <label>Twitter</label>
+                                          <label>Twitter eg. https://twitter.com/{{user.name}}</label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -780,7 +779,7 @@
                                              required
                                              >
                                           <span class="bar"></span>
-                                          <label>Linkedin</label>
+                                          <label>Linkedin eg. https://linkedin.com/{{user.name}}</label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -911,7 +910,7 @@
                                              value="{{card.upi}}"
                                              >
                                           <span class="bar"></span>
-                                          <label>UPI ID </label>
+                                          <label>UPI ID eg. {{user.name}}@oksbi</label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -920,7 +919,7 @@
                                              value="{{card.gpay}}"
                                              >
                                           <span class="bar"></span>
-                                          <label>Google Pay Phone No. </label>
+                                          <label>Google Pay UPI ID eg. {{user.name}}@oksbi</label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -929,7 +928,7 @@
                                              value="{{card.ppay}}"
                                              >
                                           <span class="bar"></span>
-                                          <label>Phone Pay Phone No.</label>
+                                          <label>Phone Pay UPI ID eg. {{user.name}}@oksbi</label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -938,7 +937,7 @@
                                              value="{{card.paytm}}"
                                              >
                                           <span class="bar"></span>
-                                          <label>Paytm UPI </label>
+                                          <label>Paytm UPI ID eg. {{user.name}}@oksbi</label>
                                        </div>
                                        <div class="btn-wrapper">
                                           <button type="submit" formnovalidate  value="submit"  class="button2 btn-primary2">
@@ -960,7 +959,7 @@
                                              value="{{card.discord}}"
                                              />
                                           <span class="bar"></span>
-                                          <label>Discord Channel Link</label>
+                                          <label>Discord Channel Link eg. https://discord.gg/32k10m</label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -969,7 +968,7 @@
                                              value="{{card.slack}}"
                                              >
                                           <span class="bar"></span>
-                                          <label>Slack Link </label>
+                                          <label>Slack Link eg. https://random.slack.com/messages/channel/ </label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -978,7 +977,7 @@
                                              value="{{card.youtube}}"
                                              >
                                           <span class="bar"></span>
-                                          <label>Youtube Channel Link</label>
+                                          <label>Youtube Channel Link eg.https://youtube.com/channel/cardfy</label>
                                        </div>
                                        <div class="group">      
                                           <input type="text" 
@@ -987,7 +986,7 @@
                                              value="{{card.skype}}"
                                              >
                                           <span class="bar"></span>
-                                          <label>Skype Profile </label>
+                                          <label>Skype Profile Link eg.  eg.https://skype.com/{{user.name}} </label>
                                        </div>
                                        <div class="btn-wrapper">
                                           <button type="submit" formnovalidate value="submit"  class="button2 btn-primary2">
@@ -1029,12 +1028,7 @@
                                        {% csrf_token %}
                                        <img class ="img" src ="/static/dashboard/done2.png" height="400px" width="400x">
                                       
-                                       {% comment %} <div class="btn-wrapper">
-                                          <button type="submit" formnovalidate value="submit"  class="button2 btn-primary2">
-                                             Verify
-                                             <div class="btn-secondary2"></div>
-                                          </button>
-                                       </div> {% endcomment %}
+                                    
                                   
                                  </div>
                                      Wohoo! You are already verified
@@ -1091,32 +1085,32 @@
                                           <div class ="col -lg-3"></div>
                                           <div class ="col -lg-1">
                                          
-                                             <a class="button" href="{{card.facebook}}">
+                                             <a class="button" href="{{card.facebook}}" target="_blank">
                                              <img src = "../static/landing_img/card/facebook.png" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
                                           <div class ="col -lg-1">
-                                             <a class="button" href="{{card.insagram}}">
+                                             <a class="button" href="{{card.insagram}}" target="_blank">
                                              <img src = "../static/landing_img/card/instagram.png" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
                                           <div class ="col -lg-1"     >
-                                             <a class="button"  href="{{card.twitter}}">
+                                             <a class="button"  href="{{card.twitter}}" target="_blank">
                                              <img src = "../static/landing_img/card/twitter.png" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
                                           <div class ="col -lg-1" >
-                                             <a class="button"   href="{{card.linkedin}}">
+                                             <a class="button"   href="{{card.linkedin}}" target="_blank">
                                              <img src = "../static/landing_img/card/linkedin.png" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
                                           <div class ="col -lg-1">
-                                             <a class="button"  href="http://wa.me/{{card.whatsapp}}">
+                                             <a class="button"  href="http://wa.me/{{card.whatsapp}}" target="_blank">
                                              <img src = "../static/landing_img/card/whatsapp.png" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
                                           <div class ="col -lg-1">
-                                             <a class="button" href="mailto:{{card.email}}">
+                                             <a class="button" href="mailto:{{card.email}}" target="_blank">
                                              <img src = "../static/landing_img/card/gmail.png" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
@@ -1139,7 +1133,7 @@
                                     <div class="card-header text-center "style=" font-family: 'Karla', sans-serif;font-size:18 ;color:#6583aa">
                     
                                     {% if card.isVerified == "True"%}
-                                       Cardfy varified creator 
+                                       Cardfy verified creator 
                                        <img src = "../static/landing_img/card/verified.png" height ="20px" width="20px" class="mx-1">
                                     {% else %}
                                        Verification Pending
@@ -1172,7 +1166,7 @@
                                        <div class = "row">
                                           <div class ="col -lg-4"></div>
                                           <div class ="col -lg-1">
-                                             <a class="button" href="upi://pay?pa={{card.upi}}&amp;pn={{card.name}} K&amp;cu=INR">
+                                             <a class="button" href="upi://pay?pa={{card.upi}}&amp;pn={{card.name}} K&amp;cu=INR" >
                                              <img src = "../static/landing_img/card/upi.png" height ="40px" width="40px" class="button mx-1">
                                              </a>
                                           </div>
@@ -1207,22 +1201,22 @@
                                        <div class = "row">
                                           <div class ="col -lg-4"></div>
                                           <div class ="col -lg-1">
-                                             <a class="button" href="{{card.discord}}">
+                                             <a class="button" href="{{card.discord}}" target="_blank">
                                              <img src = "../static/landing_img/card/discord.png" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
                                           <div class ="col -lg-1">
-                                             <a class="button" href="{{card.slack}}">
+                                             <a class="button" href="{{card.slack}}" target="_blank">
                                              <img src = "../static/landing_img/card/slack.png" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
                                           <div class ="col -lg-1" >
-                                             <a class="button" href="{{card.skype}}">
+                                             <a class="button" href="{{card.skype}}" target="_blank">
                                              <img src = "../static/landing_img/card/skype.png" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
                                           <div class ="col -lg-1" >
-                                             <a class="button" href="{{card.youtube}}">
+                                             <a class="button" href="{{card.youtube}}" target="_blank">
                                              <img src = "https://firebasestorage.googleapis.com/v0/b/cardfy-88800.appspot.com/o/assets%2Fyoutube.png?alt=media&token=526f73c9-cfe6-4bbe-b23d-8545eb198525" height ="30px" width="30px" class="button mx-1">
                                              </a>
                                           </div>
@@ -1241,32 +1235,10 @@
                               </div>
                            </div>
                         </div>
-                        {% comment %} genral sections ends here  {% endcomment %}
+                 
                      </div>
                   </div>
-                  {% comment %} 
-                  <div class="gamess">
-                     <div class="login-div">
-                        <div class="fields align-content-lg-start" style="float:left">
-                           <span > Display Name<span>
-                           <div class="username">
-                              <input type="text" class="user-input" placeholder="Display Name" />
-                           </div>
-                           <div class="username">
-                              <input type="text" class="user-input" placeholder="Email Address" />
-                           </div>
-                           <div class="username">
-                              <input type="text" class="user-input" placeholder="Display Name" />
-                           </div>
-                           <div class="password"><input type="text" class="pass-input" placeholder="password" /></div>
-                        </div>
-                        <button class="signin-button">Login</button>
-                        <div class="link">
-                           <a href="#">Forgot password?</a> or <a href="#">Sign up</a>
-                        </div>
-                     </div>
-                  </div>
-                  {% endcomment %}
+
          </div>
          </section>
          </main>
@@ -1298,6 +1270,6 @@
          });
       </script>
       {% endblock body %}
-      {% comment %} this is coepen end {% endcomment %}
+  
    </body>
 </html>
