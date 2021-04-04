@@ -14,10 +14,10 @@
 5. It can be used to communicate with the card owner eliminating multistep process of searching,addding and communicating through social media .
 
 
-<img src = "assets/1.png" height ="550px" width="1000px"/>
-<img src = "assets/2.png" height ="550px" width="1000px"/>
-<img src = "assets/3.png" height ="550px" width="1000px"/>
-<img src = "assets/5.png" height ="550px" width="1000px"/>
+<img src = "assets/10.png" height ="550px" width="1000px"/>
+<img src = "assets/9.png" height ="550px" width="1000px"/>
+<img src = "assets/8.png" height ="550px" width="1000px"/>
+<img src = "assets/7.png" height ="550px" width="1000px"/>
 
 
 ## Contributing
