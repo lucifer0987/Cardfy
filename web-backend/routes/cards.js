@@ -44,12 +44,11 @@ route.post("/", auth, async (req, res) => {
 });
 
 route.get("/me", auth, async (req, res) => {
-  const card = await Card.findOne(req.user.email);
+  const card = await Card.findOne({ email: req.user.email });
   res.status(200).send(card);
 });
-
 route.put("/me", auth, async (req, res) => {
-  const card = await Card.findOne(req.user.email);
+  const card = await Card.findOne({ email: req.user.email });
   if (!card) res.status(400).send("no card for this user");
   card.set({
     name: req.body.name,
@@ -84,4 +83,11 @@ route.put("/me", auth, async (req, res) => {
   const result = await card.save();
   if (result) res.status(200).send(result);
 });
+
+route.get("/:username", async (req, res) => {
+  const card = await Card.findOne({ username: req.params.username });
+  if (card) res.status(200).send(card);
+  else res.status(400).send("No card found");
+});
+
 module.exports = route;

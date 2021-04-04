@@ -14,6 +14,7 @@ userSchema.methods.generateAuthToken = function () {
   const token = jwt.sign(
     {
       _id: this.id,
+      email: this.email,
     },
     "privatekey"
   );
